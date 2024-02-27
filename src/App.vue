@@ -1,24 +1,27 @@
-<script setup>
-import { ref } from 'vue';
+<script>
+ import { ref } from 'vue';
 
-const contador = ref(0);
+  const contador = ref(0);
 
-function decrementar() {
-  contador.value--
-}
-function resetar() {
-  contador.value = 0
-}
+  function incrementar() {
+    contador.value++;
+  }
 
-if (contador < 0) {
-  
-}
+  function decrementar() {
+    if (contador.value > 0) {
+      contador.value--;
+    }
+  }
+
+  function reiniciar() {
+    contador.value = 0;
+  }
 </script>
 
 <template>
-  <button @click="contador++">+</button>
+  <button @click="incrementar++">+</button>
   <button @click="decrementar">-</button>
-  <button @click="resetar">zerar</button>
+  <button @click="reiniciar">zerar</button>
   <p>Valor do contador: {{  contador }}</p>
 </template>
 
